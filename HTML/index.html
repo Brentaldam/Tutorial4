@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <title>My example page</title>
+        <style>
+            h1{
+                color:blanchedalmond;
+                margin-left: 40px;
+            }
+            h2{
+                color: white
+                text-align:  center;
+
+            }
+            p{
+                color: burlywood
+                font-size: 20px
+            }
+            ol{
+                color: magenta;
+                font-size: 24px;
+            }
+            ul{
+                border: 1px solid;
+                padding: 40px;
+
+            }
+        </style>
+    </head>
+    <body bgcolor="green" background="yellowhaze.jpg">
+        Hello World!<br>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML="My First JavaScript Msg";
+            alert("An Alert Messege.");
+            console.log("an error happened");
+        </script>
+        <p id="demo-z">
+        <script>
+            var x = 5;
+            var y = 6;
+            var z = x+y;
+            document.getElementById("demo-z").innerHTML="The value of z is: "+ z;
+
+        </script>
+        </p>
+        <p id="demo-user"></p>
+        <script>
+
+            const user = "Brent Marriott";
+            document.getElementById("demo-user").innerHTML="User is: "+ user;
+        </script>
+
+<p id="demo-obj">
+    <script>
+        var person ={firstname: "Brent", lastname:"Marriott"};
+        document.getElementById("demo-obj").innerHTML="Last name is: "+ person.lastname;
+    </script>
+</p>
+<p id="demo-array">
+    <script>
+        var cities = ["LA", "Long Beach", "Irvine"]
+        document.getElementById("demo-array").innerHTML="I Live in "+ cities[0];
+    </script>
+</p>
+
+
+
+<p id="demo-fun">
+    <script>
+        function myFunction(p1, p2){
+            return p1 * p2;
+        }
+        document.getElementById("demo-fun").innerHTML=myFunction(4,3);
+    </script>
+</p>
+<button onclick="this.innerHTML=Date()">
+    The time is?
+</button>
+<br>
+<button onclick = "displayDate()">
+    The Time is?
+</button>
+
+
+<p id = "demo-time"></p>
+<Script>
+function displayDate(){
+    document.getElementById("demo-time").innerHTML=Date();
+}
+</Script>
+
+
+
+
+
+
+        <h1>Heading Size 1</h1>
+        <h2>Heading Size 2</h2>
+        <h3>Heading Size 3</h3>
+        <p><b>Bold</b>
+        <i>Italizised</i>
+    <u>Underlined</u></p>
+    <p><font color="red">Red text</font><br><br>
+    <font size=+1>Bigger text</font><br><br>
+    <font size="-1" color="purple">smaller text</font>
+    </p>
+    <a href="http://www.csulb.edu">CSULB</a><br><br>
+    <a href="example.html">Example</a><br><br>
+    <a href="workbook1.xlsx">My workbook</a><br><br>
+    <a href="simple.html">Simple</a><br><br>
+    <a href=mailto:brent.marriott@student.csulb.edu>
+        brent.marriott@student.csulb.edu</a>
+    <br><br><img src="csulbpyr.jpg" height="200" width="200">
+    <ol type="i">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Carrot</li>
+    </ol>
+    <ul type = "circle">
+        <li>LA</li>
+        <li>NYC</li>
+        <li>Seatlle</li>
+    </ul>
+
+    </body>
+</html>
