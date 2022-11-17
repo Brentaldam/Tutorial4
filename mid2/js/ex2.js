@@ -68,9 +68,39 @@ const employeeScores = [
   
   // Given the following array of average score options (used to populate drop down list options)
   const avgScoreOptions = [60, 70, 80, 90];
-  
   //  ----YOUR CODE HERE----
-  
+  var select = document.getElementById("avgScore");
+  _Fun();
+
+  // Main function
+  function _Fun() {
+      for (var i = 0; i < avgScoreOptions.length; i++) {
+          var optn = avgScoreOptions[i];
+          var el = document.createElement("option");
+          el.textContent = optn;
+          el.value = optn;
+          select.appendChild(el);
+      }
+  }
+
+  for (let i = 2; i >= 0; i--) {
+    // Find a <table> element with id="myTable":
+    var table = document.getElementById("output");
+    
+    // Create an empty <tr> element and add it to the 1st position of the table:
+    var row = table.insertRow(1);
+    
+    // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    
+    // Add some text to the new cells:
+    cell1.innerHTML = employeeScores[i].fname;
+    cell2.innerHTML = employeeScores[i].lname; 
+    cell3.innerHTML = employeeScores[i].avgScore; 
+    }
+    document.div.appendChild(table);
   // Hints:
   // 1. Populate drop down options
   // 2. Write a generic Display Function
@@ -85,4 +115,12 @@ const employeeScores = [
   // 4. Write code to handle displaying scores for average score criterion (selecting an average)
   //    - Generate a filtered array meeting the selected criterion
   //        I recommend using array methods rather than a loop
-  //    - Send the filtered array to the generic display function
+  //    - Send the filtered array to the generic display 
+ 
+    getOption();
+
+  function getOption() {
+    selectElement = document.querySelector('#avgScore');
+    output = selectElement.value;
+    document.querySelector('.output').textContent = output;
+}
