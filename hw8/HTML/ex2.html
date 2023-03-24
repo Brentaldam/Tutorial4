@@ -10,23 +10,27 @@
 </head>
 
 <body>
-    <h2>Display Employee Scores</h2>
-    <p>
-      Last name (begins with)
-      <input type="text" name="lastName" id="lastName">
-      <button id="btnDisplay">Display</button>
-    </p>
-    <p>
-      Average Score (>=)
-      <select name="avgScore" id="avgScore">
-        <option value="" selected>Select an average</option>
-      </select>
-    </p>
-    <div id="output"></div>
-  
-  
-  
-    
+  <h2>Information about a GitHub user</h2>
+  <form>
+    <input type="text" id="username" name="username" required>
+    <button type="button" onclick="getUserInfo()">Lookup</button>
+  </form>
+  <br>
+  <p><img id="avatar" src="" alt="User avatar" height="200" width="200"></p>
+  <table id="user-info">
+    <tr>
+      <th>Name</th>
+      <td id="name"></td>
+    </tr>
+    <tr>
+      <th>Blog</th>
+      <td id="blog"></td>
+    </tr>
+    <tr>
+      <th>Account Created</th>
+      <td id="created-at"></td>
+    </tr>
+  </table> 
     <script src="../js/ex2.js" rel="text/javascript"></script>
 </body>
 

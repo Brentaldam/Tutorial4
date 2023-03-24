@@ -32,6 +32,9 @@ const getCharacters = houseCode => {
     }
 };
 
+
+
+
 function myFunc() {
 
     var e = document.getElementById("house");
@@ -58,4 +61,5 @@ function myFunc() {
 };
 
 addEventListener('change', myFunc);
+
 
