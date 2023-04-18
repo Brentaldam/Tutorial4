@@ -1,129 +1,109 @@
-/* The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
-
-For example, this can be useful when:
-
-    Clicking on a "Submit" button, prevent it from submitting a form
-    Clicking on a link, prevent the link from following the URL
-
-Note: Not all events are cancelable. Use the cancelable property to find out if an event is cancelable.
-
-Note: The preventDefault() method does not prevent further propagation of an event through the DOM. Use the stopPropagation() method to handle this. 
- document.getElementById("myAnchor").addEventListener("click", function(event){
-  event.preventDefault()
-});
-*/
-
-
-/* 
-JavaScript Example
-function validateForm() {
-  let x = document.forms["myForm"]["fname"].value;
-  if (x == "") {
-    alert("Name must be filled out");
-    return false;
-  }
-}
-<button type="button" onclick="myFunction()">Submit</button>
-
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-  // Get the value of the input field with id="numb"
-  let x = document.getElementById("numb").value;
-  // If x is Not a Number or less than one or greater than 10
-  let text;
-  if (isNaN(x) || x < 1 || x > 10) {
-    text = "Input not valid";
-  } else {
-    text = "Input OK";
-  }
-  document.getElementById("demo").innerHTML = text;
-}
-The function can be called when the form is submitted:
-HTML Form Example
-<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
-Name: <input type="text" name="fname">
-<input type="submit" value="Submit">
-</form>  */
-
-
-
 // Given the following Array of employee objects
-const employeeList = [
+const employees = [
   {
-      name: "Amy",
-      scores: []
+      name: "Alan",
+      examScores: []
   },
   {
-      name: "Beth",
-      scores: []
+      name: "Betty",
+      examScores: []
   },
   {
-      name: "Chuck",
-      scores: []
+      name: "Cindy",
+      examScores: []
   },
   {
-      name: "Dave",
-      scores: []
+      name: "Dana",
+      examScores: []
   },
   {
-      name: "Eric",
-      scores: []
+      name: "Ellen",
+      examScores: []
   },
   {
-      name: "Fran",
-      scores: []
+      name: "Frank",
+      examScores: []
   },
   {
-      name: "Gina",
-      scores: []
+      name: "Glenda",
+      examScores: []
   },
   {
-      name: "Henry",
-      scores: []
+      name: "Hank",
+      examScores: []
   }
 ];
 
-// PART I - Populate Array (EXISTING array, not a new array)
-// Write code to populate the employee's scores.
-// Notes:
-//   Employees must take at least 3 tests
-//   Employees may take 7 tests
-//  
-// Task
-// For each employee, generate a random number between 3 and 7 (number of tests taken)
-//   For each test, assign a random score between 61 and 100
+// PART I - Populate the EXISTING array.  Do NOT create a new array.
+// Overview
+// In order to obtain certification, employees must pass an exam with a minimum score of 90 (90 or higher)
+// History shows that exam scores are uniformaly distributed between 50 and 100.
 //
+// Task
+// Write code to populate the employee's exam scores.
+// Notes:
+//   For each employee, generate a random number between 50 and 100 (exam score)
+//   Populate the employees score with the random number
+//   Continue populating the employee scores until the employee earns a 90 or higher
+//     (can be on the first attempt or may take multiple attempts)
+
 // Example:
-//   Assume Amy took 4 tests.  The result for Amy may look as follows:
+//   The result for Alan may look as follows (this is an example only, your results will vary):
 //    {
-//      name: "Amy",
-//      scores: [75, 98, 82, 93]
+//      name: "Alan",
+//      examScores: [ 82, 65, 89, 71, 98 ]
 //    },
 
-// Hint (Use a nested loop: outer and inner loops):
-//  Loop through the employeeList Array
-//    For each iteration, generate a random number between 3 to 7 (number of tests)
-//    Iterate through the number of tests, adding a value to the scores between 61 and 100.
+//  ----YOUR CODE HERE----
+employees.forEach(examScores => {
+  
+  console.log(examScores);
+  employees.pop(getRandom(50,100));
+});
+function getRandom (min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// You could use the following to test the updated array:
+// console.log(employees);
+
+// PART II - Drop the lowest score from the EXISTING array.  Do NOT create a new array.
+// Overview
+// If the employee did not pass the exam on the first attempt, you want to drop the lowest score
+// This is done to improve employee attempts statistics
+//
+// Task
+// For each employee, check the number of attempts (scores)
+// If the number of attempts is greater than one, drop the lowest score
+// Note:
+//   Optional:
+//     You may create a generic function to determine the lowest score of an array
+//     since you will need to do this again below
+//
+// Example:
+//   Using the example for Alan from above, the updated result is below
+//     (this is an example only, your results will vary):
+//    {
+//      name: "Alan",
+//      examScores: [ 82, 89, 71, 98 ]
+//    },
 
 //  ----YOUR CODE HERE----
-for(let i=0; i<employeeList.length;i++){
-  for(let j=0; j< 3+ Math.floor(Math.random() * 6);j++){
-    var rand = 60 + Math.floor(Math.random() * 41);
-  
-  employeeList[i].scores[j] = rand;
-  }
-console.log(employeeList[i]);
-}
-// You could use the following to test the updated array:
-// console.log(employeeList);
 
-// PART II - Summary Data (Create a NEW array)
+// You could use the following to test the updated array:
+// console.log(employees);
+
+// PART III - Create a NEW Array with Summary Data / Use Array Functions
+// Overview
+// Use array functions to create a NEW ARRAY with summary data
+// DO NOT use a traditional loop with indexes, forEach loop, or for-of loop
+//
+// Task
 // Create an array of objects, each object containing the following:
 //  name
-//  scores
-//  numberOf Tests
+//  examScores (this is an array)
+//  numberOfAttempts
+//  passingScore (this is the high score)
 //  avgScore
 //  minScore
 
@@ -132,78 +112,37 @@ console.log(employeeList[i]);
 //   - DO NOT write a traditional loop with indexes, forEach loop, or for-of loop
 //   - You may use functions (not required)
 
-// Sample object for "Amy" 
+// Sample object for "Alan"
 //  This is just an example, your values will vary depending on number of tests and test scores
-//   As above, Assume Amy took 4 tests
+//   Use Alan's scores from above
 //    {
-//      name: "Amy",
-//      scores: [75, 98, 82, 93],
+//      name: "Alan",
+//      examScores: [ 82, 89, 71, 98 ],
 //      numberOfTests: 4,
-//      avgScore: 87,
-//      minScore: 75
+//      passingScore: 98
+//      avgScore: 85,
+//      minScore: 71
 //    },
 
 //  ----YOUR CODE HERE----
-const newArray = employeeList.map(obj => ({...obj}));
-console.log(newArray);
-/* for(let i=0; i<employeeList.length;i++){
-var numberOfTests = employeeList.filter(employeeList[i].scores);
-} */
-/* let sum = newArray.reduce((Sum, a) => Sum + a, 0);
-console.log(sum); */
 
-//avgScore = 
-//console.log(numberOfTests);
-for (let i = 0; i < newArray.length; i++) {
-
-      let minScore = newArray[i].scores[0], maxScore = newArray[i].scores[0]; 
-      
-      let avgScore = 0;
-
-      let sum = 0;
-for (let j = 0; j < newArray[i].scores.length; j++) {
-
-  let val = newArray[i].scores[j];
-
-  sum += val;
-
-  if (val < minScore)
-
-      minScore = val;
-
-  if (maxScore < val)
-
-      maxScore = val;
-
-
-
-avgScore = sum / newArray[i].scores.length;
-
-newArray.minScore = (minScore);
-
-
-newArray.avgScore = (avgScore);
-  }
-}
-
-// You could use the following to test the updated list:
+// You could use the following to test the updated array:
 // console.log(yourArrayName);
 
-// PART III - Output the results
-//  Output the summarized data to the console.  Must use the following format:
+// PART IV - Output the results / Custom Format
+//  Output the summarized data to the console.  You must use the following format:
 //  (this is not a single line console.log(yourArrayName))
 //  Hint: Loop through the array
-// Name: Amy
-// Scores: 75, 98, 82, 93
-// Number of tests: 4
-// Average score: 87
-// Min score: 75
-// ***************************
 //
-// Note:  Include the *************************** after each employee
-for (let i = 0; i < employeeList.length; i++) {
-newArray.forEach(myFunc);
+// Name: Alan
+// Exam Scores: 82, 89, 71, 98
+// Number of tests: 4
+// Passing Score: 98.  Average Score: 85.  Min Score: 71
+// *********************************************************
+// Name: Betty
+// ...
+//
+// Note:  Include the ********************************************************* after each employee
 
-function myFunc(){
-  newArray.star ='***************************';
-}}
+//  ----YOUR CODE HERE----
+ 

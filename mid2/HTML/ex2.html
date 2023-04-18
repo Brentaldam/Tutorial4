@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>Display Objects and Filter Scores</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,70 +9,23 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     
     <title>ex2</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <!-- <link rel="stylesheet" href="../CSS/style.css"> -->
 </head>
-
 <body>
-<!--     <div class="main-block">
-        <h1>Registration</h1>
-        <form action="/">
-          <hr>
-          <div class="account-type">
-            <input type="radio" value="none" id="radioOne" name="account" checked/>
-            <label for="radioOne" class="radio">Personal</label>
-            <input type="radio" value="none" id="radioTwo" name="account" />
-            <label for="radioTwo" class="radio">Company</label>
-          </div>
-          <hr>
-          <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-          <input type="text" name="name" id="name" placeholder="Email" required/>
-          <label id="icon" for="name"><i class="fas fa-user"></i></label>
-          <input type="text" name="name" id="name" placeholder="Name" required/>
-          <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
-          <input type="password" name="name" id="name" placeholder="Password" required/>
-          <hr>
-          <div class="gender">
-            <input type="radio" value="none" id="male" name="gender" checked/>
-            <label for="male" class="radio">Male</label>
-            <input type="radio" value="none" id="female" name="gender" />
-            <label for="female" class="radio">Female</label>
-          </div>
-          <hr>
-          <h4>Name<span>*</span></h4>
-          <div class="title-block">
-            <select>
-              <option value="title" selected>Title</option>
-              <option value="ms">Ms</option>
-              <option value="miss">Miss</option>
-              <option value="mrs">Mrs</option>
-              <option value="mr">Mr</option>
-            </select>
-            <input class="name" type="text" name="name" placeholder="First" />
-            <input class="name" type="text" name="name" placeholder="Last" />
-          </div>
-          <hr>
-          <hr>
-          <div class="btn-block">
-            <button type="submit" href="/">Submit</button>
-          </div>
-        </form>
-      </div> -->
-
-      <h2>Display Employee Scores</h2>
-      <p>
-        Last name (begins with)
-        <input type="text" name="lastName" id="lastName">
-        <button id="btnDisplay">Display</button>
-      </p>
-      <p>
-        Average Score (>=)
-        <select name="avgScore" id="avgScore">
-          <option value="" selected>Select an average</option>
+    <h2>Employee Travel Costs</h2>
+    <label for="filterLastName">Last name (begins with):</label>
+    <input type="text" id="filterLastName" placeholder="Enter last name">
+    <button id="btnFilterLastName">Display</button>
+    <br>
+    <label for="filterTotalCost">Total Travel Cost (less than or equal to):</label>
+    <select id="filterTotalCost">
+        <option value="" selected>Select total cost</option>
         </select>
-      </p>
-      <div id="output"></div>
+    <button id="btnFilterTotalCost">Display</button>
+    <br>
+    <label for="output">Output:</label>
+    <div id="output"></div>
     
-    <script src="../js/ex2.js" rel="text/javascript"></script>
+    <script src="../js/ex2.js"></script>
 </body>
-
 </html>
